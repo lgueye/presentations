@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>DevOps journey of a Java dev</title>
+
+		<meta name="description" content="Return of experience about my devops journey">
+		<meta name="author" content="Louis Gueye">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+			.container{
+				display: flex;
+			}
+			.col{
+				flex: 1;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>DevOps journey of a Java dev</h1>
+					<p>
+						<small><a href="https://lgueye.github.io">Louis Gueye</a></small>
+					</p>
+				</section>
+				<section>
+					<h3>The story</h3>
+					<div class="container">
+						<div class="col">
+							<img src="images/domosafety.png" width="80%">
+						</div>
+						<div class="col">
+							<ul>
+								<li>Safety system for elderly</li>
+								<li>Availability and Correctness became critical business requirements</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<section>
+						<h3>Correctness was supposed to be the <i>easiest</i></h3>
+						<div class="container">
+							<div class="col">
+								<img src="https://media3.giphy.com/media/3o7btNa0RUYa5E7iiQ/giphy.gif" width="80%">
+							</div>
+							<div class="col">
+								<ul>
+									<li>Given / When / Then at scale</li>
+									<li>Challenge: reproduce locally</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Works on my machine !</h3>
+						<div class="container">
+							<div class="col">
+								<img src="https://media.giphy.com/media/GIEXgLDfghUSQ/giphy.gif" width="80%">
+							</div>
+							<div class="col">
+								<ul>
+									<li>compile</li>
+									<li>test</li>
+									<li>package</li>
+									<li>start components (~15)</li>
+									<li>migrate DB</li>
+									<li>behavior tests (~75)</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Let's scale the process !</h3>
+						<div class="container">
+							<div class="col">
+								<img src="images/full_release_process.png" width="80%">
+							</div>
+							<div class="col">
+								<ul>
+									<li>Goal: migrate production from N to N+1</li>
+									<li>Challenge: automate the process</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>LOCAL is safe</h3>
+						<div class="container">
+							<div class="col">
+								<img src="images/chris-ried-ieic5Tq8YMk-unsplash.jpg" width="80%">
+								<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@cdr6934?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Chris Ried"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Chris Ried</span></a>
+							</div>
+							<div class="col">
+								<ul>
+									<li>Quick feedback</li>
+									<li>No impact on team</li>
+									<li>Rebase before push</li>
+									<li>Push in confidence</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>INTG is manageable</h3>
+						<div class="container">
+							<div class="col">
+								<img src="images/josh-calabrese-Ev1XqeVL2wI-unsplash.jpg" width="60%">
+								<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@joshcala?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Josh Calabrese"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Josh Calabrese</span></a>
+							</div>
+							<div class="col">
+								<ul>
+									<li>Validates compatibility against the team work</li>
+									<li>Introduce CI</li>
+									<li>Release candidates</li>
+									<li>Promotion to next env</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>STAGING is hard</h3>
+						<div class="container">
+							<div class="col">
+								<img src="https://media.giphy.com/media/12qq4Em3MVuwJW/giphy.gif" width="80%">
+							</div>
+							<div class="col">
+								<ul>
+									<li>create, secure and configure infrastructure</li>
+									<li>install version N (PROD)</li>
+									<li>rollout version N+1
+										<ul>
+											<li>migrate dependencies (DB, queues, backends, etc)
+												<ul>
+													<li>schema</li>
+													<li>data</li>
+												</ul>
+											</li>
+											<li>deploy apps</li>
+										</ul>
+									</li>
+									<li>smoke tests (~5)</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Let's step back it's getting complicated !</h3>
+						<div class="container">
+							<div class="col">
+								<img src="https://media.giphy.com/media/l0HlKLHEh2s3MqZC8/giphy.gif" width="80%">
+							</div>
+							<div class="col">
+								<ul>
+									<li>Platform vs Product</li>
+									<li>Challenge: minimize impact</li>
+									<li>Different lifecycles</li>
+									<li>Different challenges</li>
+									<li>Different skills</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Platform team</h3>
+						<div class="container">
+							<div class="col">
+								<img src="images/david-martin-p9vBVq_-nXY-unsplash.jpg" width="100%">
+								<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@davidmartinjr?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from David Martin"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">David Martin</span></a>
+							</div>
+							<div class="col">
+								<ul>
+									<li>Discovery</li>
+									<li>Cache</li>
+									<li>Scheduling</li>
+									<li>Persistence</li>
+									<li>Metrics</li>
+									<li>Logs</li>
+									<li>Tracing</li>
+									<li>Alerting</li>
+									<li>Backups</li>
+									<li>Security</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Product team</h3>
+						<div class="container">
+							<div class="col">
+								<img src="images/devin-avery-VBBs_SWsdwU-unsplash.jpg" width="80%">
+								<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@devintavery?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Devin Avery"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Devin Avery</span></a>
+							</div>
+							<div class="col">
+								<ul>
+									<li>Focus on product</li>
+									<li>Quick iterations</li>
+									<li>Behavior driven</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Hard times</h3>
+						<div class="container">
+							<div class="col">
+								<img src="https://media.giphy.com/media/JsiCFbNS3YuGT9rjnQ/giphy.gif" width="60%">
+							</div>
+							<div class="col">
+								<ul>
+									<li>Organizing code for collaboration</li>
+									<li>Designing stateless backends</li>
+									<li>Security</li>
+									<li>Observability</li>
+									<li>Distributed systems is a young industry</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Success factors</h3>
+						<div class="container">
+							<div class="col">
+								<img src="https://media.giphy.com/media/11J8lEFfvHLipi/giphy.gif" width="80%">
+							</div>
+							<div class="col">
+								<ul>
+									<li>Know your process</li>
+									<li>Design for testability</li>
+									<li>Design for compatibility: append-only</li>
+									<li>Zero tolerance on failures or bugs</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Questions</h3>
+						<div class="container">
+							<div class="col">
+								<img src="images/jon-tyson-hhq1Lxtuwd8-unsplash.jpg" width="100%">
+								<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@jontyson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Jon Tyson"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Jon Tyson</span></a>
+							</div>
+							<div class="col">
+								<ul>
+									<li>github.com/lgueye</li>
+									<li>@lgueye</li>
+									<li>louis.gueye@gmail.com</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
