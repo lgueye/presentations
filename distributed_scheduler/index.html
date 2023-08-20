@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/league.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        svg {
+            fill: white !important;
+        }
+    </style>
+</head>
+<body>
+<div id="sicpa_ogo" style="background: url(images/sicpa_logo.svg);
+							position: absolute;
+							bottom: 100px;
+							right: 100px;
+							width: 100px;
+							height: 100px;"></div>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h4>Foundational distributed components: the scheduler</h4>
+            <p>
+                <small><a href="#">Louis Gueye (CH3 Team)</a></small>
+            </p>
+        </section>
+<!--        <section>-->
+<!--            <h5>Agenda</h5>-->
+<!--            <div class="container">-->
+<!--                <div class="col">-->
+<!--                    <img src="images/agenda_80.jpeg" width="80%"/>-->
+<!--                    <div style="align-content: center">-->
+<!--                        <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"-->
+<!--                           href="https://unsplash.com/@thomasbormans?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"-->
+<!--                           target="_blank" rel="noopener noreferrer"-->
+<!--                           title="Download free do whatever you want high-resolution photos from Devin Avery"><span-->
+<!--                                style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                                                  style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"-->
+<!--                                                                                  viewBox="0 0 32 32"><title>unsplash-logo</title><path-->
+<!--                                d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span-->
+<!--                                style="display:inline-block;padding:2px 3px">Thomas Bormans</span></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <ul>-->
+<!--                        <li>Overview of an application scheduler</li>-->
+<!--                        <li>Current implementations</li>-->
+<!--                        <li>Target implementation</li>-->
+<!--                        <li>Demo</li>-->
+<!--                        <li>Implementation steps</li>-->
+<!--                        <li>Takeaway</li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+        <section>
+            <h5>Application scheduler</h5>
+            <pre>
+						<code data-line-numbers>
+@Scheduled(cron = "0 0 12 * * ?") // fires everyday at noon
+public void generateReport() {
+	// code to generate the report
+}
+						</code>
+					</pre>
+        </section>
+        <section>
+            <section>
+                <h5>Current Implementations</h5>
+                <img src="images/current_implementations.png" width="100%"/>
+            </section>
+<!--            <section>-->
+<!--                <h5>Current Implementations</h5>-->
+<!--                <ul>-->
+<!--                    <li>Not suitable for dynamic workloads</li>-->
+<!--                    <li>Configuration is static</li>-->
+<!--                    <li>Not very precise</li>-->
+<!--                </ul>-->
+<!--            </section>-->
+        </section>
+        <section>
+            <h5>Target</h5>
+            <div class="container">
+                <div class="col">
+                    <img src="images/target_40.jpeg" width="70%"/>
+                    <div style="align-content: center">
+                        <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
+                           href="https://unsplash.com/@24ameer?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+                           target="_blank" rel="noopener noreferrer"
+                           title="Download free do whatever you want high-resolution photos from Devin Avery"><span
+                                style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                  style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                                                                                  viewBox="0 0 32 32"><title>unsplash-logo</title><path
+                                d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
+                                style="display:inline-block;padding:2px 3px">Ameer Basheer</span></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li>Suitable for dynamic workloads</li>
+                        <li>On demand schedule</li>
+                        <li>Millisecond precision</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h5>Demo</h5>
+            <img src="images/jeremy_yap_demo_60.jpeg" width="70%"/>
+            <div style="align-content: center">
+                <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
+                   href="https://unsplash.com/@jeremyyappy?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+                   target="_blank" rel="noopener noreferrer"
+                   title="Download free do whatever you want high-resolution photos from Devin Avery"><span
+                        style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                          style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                                                                          viewBox="0 0 32 32"><title>unsplash-logo</title><path
+                        d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
+                        style="display:inline-block;padding:2px 3px">Jeremy Yap</span></a>
+            </div>
+        </section>
+        <section>
+            <section>
+                <h5>The distributed implementation</h5>
+                <ul>
+                    <li>Availability was an issue</li>
+                    <li>The messaging semantic matters</li>
+                    <li>Distributed lock to the rescue</li>
+                </ul>
+            </section>
+            <section>
+                <h5>Availability</h5>
+                <img src="images/01-availability.png"/>
+            </section>
+            <section>
+                <h5>Load balancing messaging semantic</h5>
+                <img src="images/02-load-balancing.png"/>
+            </section>
+            <section>
+                <h5>Pub/Sub messaging semantic</h5>
+                <img src="images/03-topic-semantic.png"/>
+            </section>
+            <section>
+                <h5>Distributed Lock</h5>
+                <img src="images/04-distributed-lock.png"/>
+            </section>
+        </section>
+        <section>
+            <h5>Takeaways</h5>
+            <div class="container">
+                <div class="col">
+                    <img src="images/Optimized-devin-avery-VBBs_SWsdwU-unsplash.jpg" width="80%">
+                    <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
+                       href="https://unsplash.com/@devintavery?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+                       target="_blank" rel="noopener noreferrer"
+                       title="Download free do whatever you want high-resolution photos from Devin Avery"><span
+                            style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                              style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                                                                              viewBox="0 0 32 32"><title>unsplash-logo</title><path
+                            d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
+                            style="display:inline-block;padding:2px 3px">Devin Avery</span></a>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li>Distributed is complex</li>
+                        <li>Platform code should not be part of business components</li>
+                        <li>Testing helped the design</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3>Thank you !</h3>
+            <img src="images/Optimized-jon-tyson-hhq1Lxtuwd8-unsplash.jpg" width="40%">
+            <div style="align-content: center">
+                <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
+                   href="https://unsplash.com/@jontyson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+                   target="_blank" rel="noopener noreferrer"
+                   title="Download free do whatever you want high-resolution photos from Jon Tyson"><span
+                        style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                          style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                                                                          viewBox="0 0 32 32"><title>unsplash-logo</title><path
+                        d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
+                        style="display:inline-block;padding:2px 3px">Jon Tyson</span></a>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        // center: false,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+</script>
+</body>
+</html>
