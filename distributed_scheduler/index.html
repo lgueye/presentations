@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Foundational distributed components: the scheduler</title>
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
@@ -12,6 +12,8 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         .container {
             display: flex;
@@ -23,6 +25,11 @@
 
         svg {
             fill: white !important;
+        }
+
+        .reveal i.fa {
+            font-family:FontAwesome;
+            font-style: normal;
         }
     </style>
 </head>
@@ -99,14 +106,6 @@ public void generateReport() {
         </section>
         <section>
             <section>
-                <h5>The distributed implementation</h5>
-                <ul>
-                    <li>Availability was an issue</li>
-                    <li>The messaging semantic matters</li>
-                    <li>Distributed lock to the rescue</li>
-                </ul>
-            </section>
-            <section>
                 <h5>Availability</h5>
                 <img src="images/01-availability.png"/>
             </section>
@@ -124,8 +123,32 @@ public void generateReport() {
             </section>
         </section>
         <section>
-            <h5>Fun is over!</h5>
-            <img src="images/fun-is-over.png" width="100%"/>
+            <section>
+                <h5>Fun is over!</h5>
+                <img src="images/fun-is-over.png" width="100%"/>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="col">
+                        <h5>Advertising</h5>
+                        <ul>
+                            <li>Documenting</li>
+                            <li>Demoing</li>
+                            <li>Convincing</li>
+                            <li>Involving</li>
+                            <li>Funding</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h5>Industrialising</h5>
+                        <ul>
+                            <li>Automating</li>
+                            <li>Validating gates</li>
+                            <li>Promoting</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </section>
         <section>
             <h5>Takeaways</h5>
@@ -144,8 +167,8 @@ public void generateReport() {
                 </div>
                 <div class="col">
                     <ul>
-                        <li>Techs: we must get better at communicating our hard work</li>
-                        <li>Techs: the estimation does not end at the POC. There's a lot more !</li>
+                        <li>We must get better at communicating our hard work</li>
+                        <li>The estimation does not end at the POC. There's a lot more !</li>
                         <li>Stakeholders: do you still think estimations are too high?</li>
                     </ul>
                 </div>
@@ -153,17 +176,34 @@ public void generateReport() {
         </section>
         <section>
             <h3>Thank you !</h3>
-            <img src="images/Optimized-jon-tyson-hhq1Lxtuwd8-unsplash.jpg" width="40%">
-            <div style="align-content: center">
-                <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
-                   href="https://unsplash.com/@jontyson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
-                   target="_blank" rel="noopener noreferrer"
-                   title="Download free do whatever you want high-resolution photos from Jon Tyson"><span
-                        style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
-                                                                          style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
-                                                                          viewBox="0 0 32 32"><title>unsplash-logo</title><path
-                        d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
-                        style="display:inline-block;padding:2px 3px">Jon Tyson</span></a>
+            <div class="container">
+                <div class="col">
+                    <img src="images/Optimized-jon-tyson-hhq1Lxtuwd8-unsplash.jpg" width="80%">
+                    <div style="align-content: center">
+                        <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
+                           href="https://unsplash.com/@jontyson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+                           target="_blank" rel="noopener noreferrer"
+                           title="Download free do whatever you want high-resolution photos from Jon Tyson"><span
+                                style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                  style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                                                                                  viewBox="0 0 32 32"><title>unsplash-logo</title><path
+                                d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
+                                style="display:inline-block;padding:2px 3px">Jon Tyson</span></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li><i class="fa fa-github"></i>lgueye/dsched-root</li>
+                        <li>
+                            <ul>
+                                <li>java 17</li>
+                                <li>spring-boot</li>
+                                <li>ActiveMQ</li>
+                                <li>Hazelcast</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
     </div>
